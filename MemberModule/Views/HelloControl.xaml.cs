@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,16 +13,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PrismMembership.Modules.Membership.ViewModels;
 
 namespace PrismMembership.Modules.Membership.Views
 {
     /// <summary>
     /// Interaction logic for HelloControl.xaml
     /// </summary>
+    [Export]
     public partial class HelloControl : UserControl
     {
-        public HelloControl()
+        [ImportingConstructor]
+        public HelloControl(HelloViewModel viewModel)
         {
+            DataContext = viewModel;
             InitializeComponent();
         }
     }

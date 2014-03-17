@@ -6,6 +6,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Label Content="Hello" Height="38" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Width="193" Background="#FFD8CFCF" />        
+        <Label Content="{Binding Path=Name}" Height="38" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Width="193" Background="#FFD8CFCF" />        
     </Grid>
 </UserControl>
