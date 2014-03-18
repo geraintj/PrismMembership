@@ -12,18 +12,19 @@ namespace PrismMembership.Modules.Membership
     [ModuleExport(typeof(MembershipModule))]
     public class MembershipModule : IModule
     {
+        private readonly MembershipListViewModel _membershipListViewModel;
         private readonly HelloViewModel _helloViewModel;
 
         [ImportingConstructor]
-        public MembershipModule(HelloViewModel helloViewModel)
+        public MembershipModule(MembershipListViewModel membershipListViewModel)
         {
-            _helloViewModel = helloViewModel;
+            _membershipListViewModel = membershipListViewModel;
         }
 
         public void Initialize()
         {
             IRegionManager regionManager = (IRegionManager)ServiceLocator.Current.GetInstance(typeof(IRegionManager));
-            regionManager.Regions["MembershipRegion"].Add(new HelloControl(_helloViewModel));
+            regionManager.Regions["MembershipRegion"].Add(new MembershipListControl(_membershipListViewModel));
         }
     }
 }

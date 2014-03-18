@@ -11,10 +11,10 @@ namespace PrismMembership.Services
     [Export]
     public class MemberService : IMemberService
     {
-        private IRepo<Member> _memberRepo;
+        private IMemberRepo _memberRepo;
 
         [ImportingConstructor]
-        public MemberService(IRepo<Member> memberRepo)
+        public MemberService(IMemberRepo memberRepo)
         {
             _memberRepo = memberRepo;
         }

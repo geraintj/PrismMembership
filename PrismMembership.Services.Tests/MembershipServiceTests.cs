@@ -14,7 +14,7 @@ namespace PrismMembership.Services.Tests
         [TestMethod]
         public void GetAllMembershipsTest()
         {
-            var mockRepo = new Mock<IRepo<Membership>>();
+            var mockRepo = new Mock<IMembershipRepo>();
             mockRepo.Setup(m => m.All()).Returns(Enumerable.Range(1,10).Select(i => new Membership() { FID = i.ToString()}));
 
             var service = new MembershipService(mockRepo.Object);
@@ -25,7 +25,7 @@ namespace PrismMembership.Services.Tests
         [TestMethod]
         public void SearchMembershipsTest()
         {
-            var mockRepo = new Mock<IRepo<Membership>>();
+            var mockRepo = new Mock<IMembershipRepo>();
             mockRepo.Setup(m => m.Query(It.IsAny<Expression<Func<Membership, bool>>>()))
                 .Returns(new List<Membership>()
                 {
@@ -44,7 +44,7 @@ namespace PrismMembership.Services.Tests
         [TestMethod]
         public void GetMembershipTest()
         {
-            var mockRepo = new Mock<IRepo<Membership>>();
+            var mockRepo = new Mock<IMembershipRepo>();
             mockRepo.Setup(m => m.Single(It.IsAny<Expression<Func<Membership, bool>>>()))
                 .Returns(new Membership() {FID = "One", Surname = "Name"});
 

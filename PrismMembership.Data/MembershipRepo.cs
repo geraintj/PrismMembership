@@ -13,27 +13,27 @@ using System.ComponentModel;
 
 namespace PrismMembership.Data
 {
-    [Export]
-    public class Repo<T> : IRepo<T> where T : class
+    [Export(typeof(IMembershipRepo))]
+    public class MembershipRepo : IMembershipRepo
     {
-        private IObjectSet<T> _objectSet;
+        private IObjectSet<Membership> _objectSet;
 
-        public Repo()
+        public MembershipRepo()
         {
-            _objectSet = new ObjectContext("name=MembershipEntities").CreateObjectSet<T>();
+            _objectSet = new ObjectContext("name=Entities").CreateObjectSet<Membership>();
         }
 
-        public IEnumerable<T> All()
+        public IEnumerable<Membership> All()
         {
             return _objectSet.ToList();
         }
 
-        public IEnumerable<T> Query(Expression<Func<T, bool>> predicate)
+        public IEnumerable<Membership> Query(Expression<Func<Membership, bool>> predicate)
         {
             return _objectSet.Where(predicate).AsEnumerable();
         }
 
-        public T Single(Expression<Func<T, bool>> predicate)
+        public Membership Single(Expression<Func<Membership, bool>> predicate)
         {
             return _objectSet.Single(predicate);
         }

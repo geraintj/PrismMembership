@@ -8,20 +8,26 @@ using PrismMembership.Data;
 
 namespace PrismMembership.Services
 {
-    [Export]
+    [Export(typeof(IMembershipService))]
     public class MembershipService : IMembershipService
     {
-        private readonly IRepo<Membership> _membershipRepo;
+        private readonly IMembershipRepo _membershipRepo;
 
         [ImportingConstructor]
-        public MembershipService(IRepo<Membership> membershipRepo)
+        public MembershipService(IMembershipRepo membershipRepo)
         {
             _membershipRepo = membershipRepo;
         }
 
         public IEnumerable<Membership> GetAllMemberships()
         {
-            return _membershipRepo.All();
+            //return _membershipRepo.All();
+            return new List<Membership>()
+            {
+                new Membership() {FID = "One", Surname = "Name", Renewal_Date = DateTime.Now, Post_Code = "XXXX"},
+                new Membership() {FID = "Two", Surname = "Name", Renewal_Date = DateTime.Now, Post_Code = "XXXX"},
+                new Membership() {FID = "Three", Surname = "Name", Renewal_Date = DateTime.Now, Post_Code = "XXXX"},
+            }.AsEnumerable();
         }
 
         public IEnumerable<Membership> SearchMemberships(string surname)

@@ -35,6 +35,8 @@ namespace PrismMembership
             if (path != null)
             {
                 AggregateCatalog.Catalogs.Add(new DirectoryCatalog(path, "PrismMembership.Modules.Membership.dll"));
+                AggregateCatalog.Catalogs.Add(new DirectoryCatalog(path, "PrismMembership.Data.dll"));
+                AggregateCatalog.Catalogs.Add(new DirectoryCatalog(path, "PrismMembership.Services.dll"));
             }
         }
     }

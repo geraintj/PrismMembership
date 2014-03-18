@@ -120,6 +120,14 @@
       <Project>{5aff25c4-35d4-4ddf-a743-f2ece56626c9}</Project>
       <Name>PrismMembership.Modules.Membership</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PrismMembership.Data\PrismMembership.Data.csproj">
+      <Project>{64b637ff-8ff2-4168-87ad-86710dec7b4e}</Project>
+      <Name>PrismMembership.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PrismMembership.Services\PrismMembership.Services.csproj">
+      <Project>{e7c9fcd0-c22a-4215-9f4b-2a4556609eb7}</Project>
+      <Name>PrismMembership.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

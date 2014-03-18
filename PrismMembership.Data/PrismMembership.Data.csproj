@@ -49,10 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IRepo.cs" />
+    <Compile Include="Interfaces\IMemberRepo.cs" />
+    <Compile Include="Interfaces\IMembershipRepo.cs" />
     <Compile Include="Member.cs">
       <DependentUpon>MembershipContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="MemberRepo.cs" />
     <Compile Include="Membership.cs">
       <DependentUpon>MembershipContext.tt</DependentUpon>
     </Compile>
@@ -71,7 +73,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MembershipContext.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Repo.cs" />
+    <Compile Include="MembershipRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
