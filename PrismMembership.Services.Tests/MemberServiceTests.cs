@@ -52,6 +52,24 @@ namespace PrismMembership.Services.Tests
 
             Assert.AreEqual("Two", service.GetMember("One", "Two").PID);
         }
+
+        [TestMethod]
+        public void SearchMembersTest()
+        {
+            var mockRepo = new Mock<IMemberRepo>();
+            mockRepo.Setup(m => m.Query(It.IsAny<Expression<Func<Member, bool>>>()))
+                .Returns(new List<Member>()
+                {
+                    new Member() {FID = "One", PID = "One", Surname = "Name"},
+                    new Member() {FID = "One", PID="Two", Surname = "Name"}
+                });
+
+            var service = new MemberService(mockRepo.Object);
+
+            var results = service.SearchMembers("Nam").ToList();
+
+            Assert.IsTrue(results.First().Surname.StartsWith("Nam"));
+        }
     }
 
 }

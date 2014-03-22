@@ -13,5 +13,6 @@ namespace PrismMembership.Services
         IEnumerable<Member> GetAllMembers();
         IEnumerable<Member> GetMembersForMembership(string fId);
         Member GetMember(string fId, string pId);
+        IEnumerable<Member> SearchMembers(string surname);
     }
 }

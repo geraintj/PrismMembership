@@ -21,13 +21,13 @@ namespace PrismMembership.Services
 
         public IEnumerable<Membership> GetAllMemberships()
         {
-            //return _membershipRepo.All();
-            return new List<Membership>()
-            {
-                new Membership() {FID = "One", Surname = "Name", Renewal_Date = DateTime.Now, Post_Code = "XXXX"},
-                new Membership() {FID = "Two", Surname = "Name", Renewal_Date = DateTime.Now, Post_Code = "XXXX"},
-                new Membership() {FID = "Three", Surname = "Name", Renewal_Date = DateTime.Now, Post_Code = "XXXX"},
-            }.AsEnumerable();
+            return _membershipRepo.All();
+            //return new List<Membership>()
+            //{
+            //    new Membership() {FID = "One", Surname = "Name", Renewal_Date = DateTime.Now, Post_Code = "XXXX"},
+            //    new Membership() {FID = "Two", Surname = "Name", Renewal_Date = DateTime.Now, Post_Code = "XXXX"},
+            //    new Membership() {FID = "Three", Surname = "Name", Renewal_Date = DateTime.Now, Post_Code = "XXXX"},
+            //}.AsEnumerable();
         }
 
         public IEnumerable<Membership> SearchMemberships(string surname)

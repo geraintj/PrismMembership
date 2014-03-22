@@ -33,5 +33,10 @@ namespace PrismMembership.Services
         {
             return _memberRepo.Single(m => m.FID == fId && m.PID == pId);
         }
+
+        public IEnumerable<Member> SearchMembers(string surname)
+        {
+            return _memberRepo.Query(m => m.Surname.StartsWith(surname));
+        }
     }
 }
