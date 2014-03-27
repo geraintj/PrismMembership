@@ -11,10 +11,10 @@
             <RowDefinition Height="*" Name="ContentRow" MinHeight="50"/>
         </Grid.RowDefinitions>
         
-        <Label Grid.Row="0" Content="Yeah" Height="38" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Width="193" Background="#FFD8CFCF" />
+        <TextBox Grid.Row="0" Text="Yeah" Height="38" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Width="290" />
     
         <ListView Grid.Row="1"  Name="MembershipListView" 
-                  ItemsSource="{Binding MembershipList}">
+                  ItemsSource="{Binding MembershipList}" Margin="0,0,10,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="FID" DisplayMemberBinding="{Binding Path=FID}" Width="40"/>

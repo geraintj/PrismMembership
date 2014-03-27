@@ -8,7 +8,7 @@ using PrismMembership.Data;
 
 namespace PrismMembership.Services
 {
-    [Export]
+    [Export(typeof(IMemberService))]
     public class MemberService : IMemberService
     {
         private IMemberRepo _memberRepo;

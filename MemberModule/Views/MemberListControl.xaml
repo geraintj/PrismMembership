@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="PrismMembership.Modules.Membership.Views.MemberListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Width="279">
+    <Grid Margin="0,0,-25,0">
+        <TextBox Name="SearchString" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"
+                 Text="{Binding SearchString,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             PreviewKeyDown="SearchStringPreviewKeyDown" Loaded="SearchStringLoaded"/>
+        <ListView Name="MemberList" HorizontalAlignment="Left" Height="252" Margin="10,38,0,0" VerticalAlignment="Top" Width="259"
+                 ItemsSource="{Binding FoundMembers}" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="FID" DisplayMemberBinding="{Binding Path=FID}" Width="100"/>
+                    <GridViewColumn Header="Surname"  DisplayMemberBinding="{Binding Path=Surname}" Width="60" />
+                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path=Name}" Width="60" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</UserControl>
